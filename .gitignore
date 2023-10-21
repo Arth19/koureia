@@ -21,3 +21,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python virtual environment
+venv/
+
+# Django
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+*sqlite3
+migrations/
+
+# Outros arquivos e diretórios comuns para ignorar
+*.log
+.cache/
+*.swp
+*.swo
+.idea/
+*.bak
+*.orig
+*.git
