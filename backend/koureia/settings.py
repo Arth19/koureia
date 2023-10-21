@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'salao'
 ]
 
 MIDDLEWARE = [
@@ -69,16 +70,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'koureia.wsgi.application'
 
+AUTH_USER_MODEL = 'salao.Funcionario'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'salao_db',
+        'USER': 'root',
+        'PASSWORD': 'myuser456',
+        'HOST': 'localhost',  # ou o endereço do seu servidor de banco de dados
+        'PORT': '3306',  # ou a porta do seu servidor de banco de dados (3306 é a padrão para MySQL)
     }
 }
+
 
 
 # Password validation
@@ -103,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
