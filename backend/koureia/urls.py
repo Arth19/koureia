@@ -1,22 +1,35 @@
-"""
-URL configuration for koureia project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from salao.views import (
+    FuncionarioViewSet,
+    CategoriaServicoViewSet,
+    ServicoViewSet,
+    ClienteViewSet,
+    AgendamentoViewSet,
+    PromocaoViewSet,
+    ProdutoViewSet,
+    VendaViewSet,
+    ItemVendaViewSet,
+    PagamentoViewSet,
+    AvaliacaoViewSet,
+)
+
+router = DefaultRouter()
+router.register(r'funcionarios', FuncionarioViewSet)
+router.register(r'categorias-servico', CategoriaServicoViewSet)
+router.register(r'servicos', ServicoViewSet)
+router.register(r'clientes', ClienteViewSet)
+router.register(r'agendamentos', AgendamentoViewSet)
+router.register(r'promocoes', PromocaoViewSet)
+router.register(r'produtos', ProdutoViewSet)
+router.register(r'vendas', VendaViewSet)
+router.register(r'itens-venda', ItemVendaViewSet)
+router.register(r'pagamentos', PagamentoViewSet)
+router.register(r'avaliacoes', AvaliacaoViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]
