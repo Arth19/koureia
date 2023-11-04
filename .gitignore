@@ -42,3 +42,4 @@ migrations/
 *.bak
 *.orig
 *.git
+*.env
